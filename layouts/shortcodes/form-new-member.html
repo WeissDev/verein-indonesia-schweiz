@@ -1,0 +1,41 @@
+{{ $.Scratch.Add "labelClasses" "f5 b db mb1 mt3 sans-serif mid-gray" }}
+{{ $.Scratch.Add "inputClasses" "w-100 f5 pv3 ph3 bg-light-gray bn" }}
+
+<form
+    class="black-80 sans-serif"
+    accept-charset="UTF-8"
+    action="{{ .Get "action" }}"
+    method="POST"
+    role="form"
+>
+    <label class="{{ $.Scratch.Get "labelClasses" }}" for="salutation">Anrede</label>
+    <select name="salutation" id="saluation" required class="{{ $.Scratch.Get "inputClasses" }}">
+      <option value="" selected="" disabled="">Auswählen</option>
+      <option value="Herr">Herr</option>
+      <option value="Frau">Frau</option>
+      <option value="Familie">Familie</option>
+    </select>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}"  for="first-name">Vorname</label>
+    <input type="text" id="first-name" name="first-name" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="first-name"/>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}"  for="name">Name</label>
+    <input type="text" id="name" name="name" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="name"/>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}"  for="strasse">Strasse &amp; Hausnummer</label>
+    <input type="text" id="strasse" name="strasse" class="{{ $.Scratch.Get "inputClasses" }}" required placeholder=""  aria-labelledby="strasse"/>
+
+    <div class="fl w-30 pr2">
+        <label class="{{ $.Scratch.Get "labelClasses" }}"  for="plz">PLZ</label>
+        <input type="text" id="plz" name="plz" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="plz"/>
+    </div>
+    <div class="fl w-70 pb3">
+        <label class="{{ $.Scratch.Get "labelClasses" }}"  for="ort">Ort</label>
+        <input type="text" id="ort" name="ort" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="ort"/>
+    </div>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}"  for="email">E-Mail</label>
+    <input type="email" id="email" name="email" class="{{ $.Scratch.Get "inputClasses" }}" required placeholder=""  aria-labelledby="email"/>
+
+    <button type="submit" class="link dim ph3 pv2 mb2 mt4 dib white bg-black">Absenden</button>
+</form>

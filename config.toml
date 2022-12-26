@@ -1,4 +1,39 @@
-baseURL = 'https://vereinindonesiaschweiz.ch'
-languageCode = 'de-ch'
-title = 'Verein Indonesia Schweiz'
+title = "Verein Indonesia Schweiz"
+baseURL = "https://vereinindonesiaschweiz.ch"
+languageCode = "de"
 theme = 'ananke'
+resourceDir = "resources"
+
+DefaultContentLanguage = "de"
+SectionPagesMenu = "main"
+Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+googleAnalytics = ""
+enableRobotsTXT = true
+
+# [languages]
+#   [languages.de]
+#     title = "Verein Indonesia Schweiz"
+#     weight = 1
+#     contentDir = "content/de"
+#     # languageDirection = 'rtl' for Right-To-Left languages
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  body_classes = "avenir bg-washed-yellow"
+  text_color = ""
+  author = ""
+  favicon = "/images/logos/cropped-Logo-Verein-Indonesia-Schweiz-32x32.png"
+  site_logo = "/images/logos/Logo-Verein-Indonesia-Schweiz.png"
+  description = "Die Austauschplatform für Indonesier, Schweizer und alle Interessierten"
+  # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+  background_color_class = "bg-black"
+  recent_posts_number = 3
+  custom_css = ["custom.scss"]
+
+[[params.ananke_socials]]
+name = "facebook"
+url = "https://www.facebook.com/groups/94359495038"
