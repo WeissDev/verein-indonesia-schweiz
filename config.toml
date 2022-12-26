@@ -1,0 +1,4 @@
+baseURL = 'https://vereinindonesiaschweiz.ch'
+languageCode = 'de-ch'
+title = 'Verein Indonesia Schweiz'
+theme = 'ananke'
