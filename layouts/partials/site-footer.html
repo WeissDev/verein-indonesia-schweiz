@@ -1,0 +1,30 @@
+<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="{{ .Site.Home.Permalink }}" >
+    &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} {{ now.Format "2006"}} {{ end }}
+  </a>
+    <div>
+      <p class="white-90">Bankverbindung für Spenden:</p>
+      <p class="white-70"><b>Verein Indonesia-Schweiz</b></p>
+      <p class="white-70">
+        <b>Migros Bank AG</b> <br>
+        Kontonummer: 80-533-6 <br>
+        IBAN: CH91 0840 1000 0561 0910 5
+      </p>
+    </div>
+    <div>
+      <p class="white-90">Bankverbindung für Mitgliederbeiträge:</p>
+      <p class="white-70"><b>Verein Indonesia-Schweiz</b></p>
+      <p class="white-70">
+        <b>Post Finance AG</b> <br>
+        4808 Zofingen <br>
+      <!-- </p> -->
+      <!-- <p class="white-70"> -->
+        Kontonummer: 80-37981-2 <br>
+        IBAN: CH39 0900 0000 8003 7981 2 <br>
+        BIC POFICHBEXXX
+      </p>
+    </div>
+    <div>{{ partial "social-follow.html" . }}</div>
+  </div>
+</footer>
