@@ -9,3 +9,8 @@ cascade:
 
 ## Herzlich Willkommen beim Verein Indonesia-Schweiz!
 Die Austauschplattform für Indonesier, Schweizer und alle Interessierten.
+
+
+### Wer wir sind
+
+Der Verein Indonesia-Schweiz (VIS) ist eine Non-Profit-Organisation. Unser Hauptziel besteht darin, die indonesische Kultur in der Schweiz zu fördern. Zu diesem Zweck bietet der VIS eine Kommunikations-Plattform für in der Schweiz lebende Indonesier sowie alle Menschen, die sich für die indonesische Kultur interessieren. Die zweite, aber ebenso wichtige Aufgabe des VIS ist das karitative Engagement. Die Einnahmen von regelmässig durchgeführten Charity-Events kommen gemeinnützigen Einrichtungen in Indonesien zugute.

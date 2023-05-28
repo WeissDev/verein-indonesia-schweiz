@@ -20,6 +20,5 @@ Jedes Mitglied erhält ein Exemplar der Jahresrechnung und kann auf Wunsch die g
 
 ### Wie werde ich Mitglied?
 
-Als Mitglied anmelden kann man sich über das untenstehende Formular. Sie erhalten von uns eine Anmeldebestätigung, sobald wir ihre Angaben erhalten und bearbeitet haben.
+Bitte melden Sie sich per E-Mail bei lin<!-- fhetydagzzzgjds -->a.schmidlin@<!-- sdfjsdhfkjypcs -->gm<!-- asjajdfla32838oxp -->ail.com
 
-{{< form-new-member action="https://formspree.io/f/xrgvzjyw"  >}}
