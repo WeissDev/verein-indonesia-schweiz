@@ -20,5 +20,7 @@ Jedes Mitglied erhält ein Exemplar der Jahresrechnung und kann auf Wunsch die g
 
 ### Wie werde ich Mitglied?
 
-Bitte melden Sie sich per E-Mail bei lin<!-- fhetydagzzzgjds -->a.schmidlin@<!-- sdfjsdhfkjypcs -->gm<!-- asjajdfla32838oxp -->ail.com
+Bitte melden Sie sich per E-Mail bei:
+
+`info[at]vereinindonesiaschweiz.ch`
 
