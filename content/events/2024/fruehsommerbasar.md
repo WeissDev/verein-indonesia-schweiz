@@ -2,7 +2,6 @@
 title: "Frühsommerbasar"
 date: 2024-05-08T21:45:41+02:00
 featured_image: /images/events/2024/2024-fruehsommerbasar-flyer.jpeg
-draft: true
 ---
 
 Entdecken Sie authentische kulinarische Spezialitäten und kreative Produkte aus verschiedenen Inseln Indonesiens.
