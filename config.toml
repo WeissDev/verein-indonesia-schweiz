@@ -37,3 +37,10 @@ enableRobotsTXT = true
 [[params.ananke_socials]]
 name = "facebook"
 url = "https://www.facebook.com/groups/94359495038"
+
+[module]
+[[module.imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
