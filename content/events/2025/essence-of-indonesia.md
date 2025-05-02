@@ -29,3 +29,4 @@ Jugendliche / Youth (10-17 Jahre/ years) CHF 25.-
 
 
 ![Essence Of Indonesia Program](/images/events/2025/essence-of-indonesia-program.jpeg)
+![Rumah Indonesia](/images/events/2025/rumah-indonesia.jpeg)
