@@ -1,7 +1,7 @@
 ---
 title: "Winterbasar"
 date: 2025-10-21T22:53:33+02:00
-featured_image: /images/events/2025/2025-winterbasar.jpeg
+featured_image: /images/events/2025/winterbasar-2025.jpeg
 ---
 
 # 🌨️ Winterbasar / Winter Bazaar
