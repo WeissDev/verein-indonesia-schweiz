@@ -22,5 +22,5 @@ Jedes Mitglied erhält ein Exemplar der Jahresrechnung und kann auf Wunsch die g
 
 Bitte melden Sie sich per E-Mail bei:
 
-`info[at]vereinindonesiaschweiz.ch`
+{{< email >}}
 

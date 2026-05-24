@@ -57,9 +57,9 @@ Das Event wird ab 13:00 Uhr von Live-Auftritten musikalisch begleitet.
 ---
 
 ### 📞 Kontakt / Contact  
-📧 **Email:** info@vereinindonesiaschweiz.ch  
+📧 **Email:** {{< email >}}  
 📱 **Ersalina Schmidlin (Mobile):** +41 787731430  
-🌐 **Mehr Infos / More info:** [vereinindonesiaschweiz.ch](mailto:info@vereinindonesiaschweiz.ch)
+🌐 **Mehr Infos / More info:** {{< email label="vereinindonesiaschweiz.ch" >}}
 
 ---
 
