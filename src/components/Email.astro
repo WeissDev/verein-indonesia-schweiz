@@ -1,0 +1,17 @@
+---
+// Address is base64-encoded and only turned into a link by JS, to keep it from simple scrapers.
+const { addr = 'info', domain = 'vereinindonesiaschweiz.ch' } = Astro.props;
+const encoded = btoa(`${addr}@${domain}`);
+---
+
+<span class="email" data-e={encoded}><noscript>[E-Mail: bitte JavaScript aktivieren]</noscript></span>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.email[data-e]').forEach((el) => {
+    const address = atob(el.dataset.e!);
+    const link = document.createElement('a');
+    link.href = `mailto:${address}`;
+    link.textContent = address;
+    el.replaceChildren(link);
+  });
+</script>

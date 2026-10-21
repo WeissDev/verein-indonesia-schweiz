@@ -1,0 +1,14 @@
+# The site is static: "upcoming events" are computed at build time.
+# Rebuild daily so finished events drop off the homepage.
+name: Nightly rebuild
+
+on:
+  schedule:
+    - cron: "15 0 * * *" # 01:15/02:15 Swiss time
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK }}"

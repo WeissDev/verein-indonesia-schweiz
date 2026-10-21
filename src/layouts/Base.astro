@@ -1,0 +1,65 @@
+---
+import Email from '../components/Email.astro';
+import '../styles/global.css';
+
+const { title, description = 'Die Austauschplattform für Indonesier, Schweizer und alle Interessierten', image } = Astro.props;
+const siteName = 'Verein Indonesia Schweiz';
+const fullTitle = title && title !== siteName ? `${title} – ${siteName}` : siteName;
+const nav = [
+  { href: '/events/', label: 'Events' },
+  { href: '/ueber-uns/', label: 'Über uns' },
+  { href: '/mitgliedschaft/', label: 'Mitgliedschaft' },
+];
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <link rel="icon" href="/images/logos/cropped-Logo-Verein-Indonesia-Schweiz-32x32.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/images/logos/Logo-Verein-Indonesia-Schweiz.png" alt="" width="40" height="40" />
+          <span>Verein Indonesia Schweiz</span>
+        </a>
+        <nav aria-label="Hauptnavigation">
+          {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <h2>Kontakt</h2>
+          <p><Email /></p>
+          <p><a href="https://www.facebook.com/groups/94359495038" rel="noopener">Facebook-Gruppe</a></p>
+        </div>
+        <div>
+          <h2>Spenden</h2>
+          <p>Verein Indonesia-Schweiz<br />Migros Bank AG<br />Kontonummer: 80-533-6<br />IBAN: CH91 0840 1000 0561 0910 5</p>
+        </div>
+        <div>
+          <h2>Mitgliederbeiträge</h2>
+          <p>Verein Indonesia-Schweiz<br />Post Finance AG, 4808 Zofingen<br />Kontonummer: 80-37981-2<br />IBAN: CH39 0900 0000 8003 7981 2<br />BIC: POFICHBEXXX</p>
+        </div>
+      </div>
+      <p class="wrap copyright">© {new Date().getFullYear()} Verein Indonesia Schweiz</p>
+    </footer>
+  </body>
+</html>

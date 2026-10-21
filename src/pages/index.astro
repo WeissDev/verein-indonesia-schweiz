@@ -1,0 +1,44 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import EventCard from '../components/EventCard.astro';
+import { splitEvents } from '../lib/events.js';
+
+const home = await getEntry('pages', 'home');
+const { Content } = await render(home);
+const { upcoming, past } = splitEvents(await getCollection('events'));
+---
+
+<Base title={home.data.title} description={home.data.summary} image={home.data.image}>
+  <section class="hero" style={home.data.image && `--hero: url('${home.data.image}')`}>
+    <div class="wrap">
+      <h1>{home.data.title}</h1>
+      {home.data.summary && <p>{home.data.summary}</p>}
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2>Nächste Events</h2>
+    {
+      upcoming.length ? (
+        <div class="cards">{upcoming.map((e) => <EventCard event={e} />)}</div>
+      ) : (
+        <p class="muted">Zurzeit sind keine Events geplant – schauen Sie bald wieder vorbei.</p>
+      )
+    }
+  </section>
+
+  <section class="wrap section prose">
+    <Content />
+  </section>
+
+  {
+    past.length > 0 && (
+      <section class="wrap section">
+        <h2>Vergangene Events</h2>
+        <div class="cards">{past.slice(0, 3).map((e) => <EventCard event={e} />)}</div>
+        <p><a href="/events/">Alle Events →</a></p>
+      </section>
+    )
+  }
+</Base>

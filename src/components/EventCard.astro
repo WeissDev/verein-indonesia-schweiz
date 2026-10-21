@@ -1,0 +1,16 @@
+---
+import { formatEventDate } from '../lib/events.js';
+
+const { event } = Astro.props;
+const { title, image, time, location, summary } = event.data;
+---
+
+<a class="card" href={`/events/${event.id}/`}>
+  {image ? <img src={image} alt="" loading="lazy" /> : <div class="card-placeholder" aria-hidden="true"></div>}
+  <div class="card-body">
+    <p class="card-date">{formatEventDate(event.data)}{time && ` · ${time}`}</p>
+    <h3>{title}</h3>
+    {location && <p class="card-meta">{location}</p>}
+    {summary && <p>{summary}</p>}
+  </div>
+</a>

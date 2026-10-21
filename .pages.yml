@@ -1,0 +1,85 @@
+# Editor config for https://app.pagescms.org
+# Field names must match the schema in src/content.config.ts.
+media:
+  input: public/images
+  output: /images
+  rename: safe
+
+content:
+  - name: events
+    label: Events
+    type: collection
+    path: src/content/events
+    subfolders: true
+    filename: "{year}-{primary}.md"
+    view:
+      fields: [title, eventDate, draft]
+      primary: title
+      sort: [eventDate, title]
+      default:
+        sort: eventDate
+        order: desc
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+      - name: eventDate
+        label: Datum
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: endDate
+        label: Enddatum (nur bei mehrtägigen Events)
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: time
+        label: Zeit
+        description: "z.B. 12:30 – 22:00"
+        type: string
+      - name: location
+        label: Ort
+        description: "z.B. Bahnhofsaal, Bahnhofstrasse 21, 4310 Rheinfelden"
+        type: string
+      - name: image
+        label: Flyer / Bild
+        type: image
+        options:
+          path: public/images/events
+      - name: summary
+        label: Kurzbeschreibung
+        description: "1–2 Sätze, erscheint auf der Startseite"
+        type: text
+      - name: draft
+        label: Entwurf (nicht veröffentlichen)
+        type: boolean
+        default: false
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          path: public/images/events
+
+  - name: home
+    label: Startseite
+    type: file
+    path: src/content/pages/home.md
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: summary, label: Untertitel, type: string }
+      - { name: image, label: Titelbild, type: image, options: { path: public/images/heroes } }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: pages
+    label: Seiten
+    type: collection
+    path: src/content/pages
+    exclude: [home.md]
+    view:
+      fields: [title]
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: body, label: Text, type: rich-text }

@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import EventCard from '../../components/EventCard.astro';
+import { splitEvents } from '../../lib/events.js';
+
+const { upcoming, past } = splitEvents(await getCollection('events'));
+const pastByYear = Object.entries(Object.groupBy(past, (e) => String(e.data.eventDate.getUTCFullYear()))).sort(([a], [b]) => Number(b) - Number(a));
+---
+
+<Base title="Events">
+  <div class="wrap section">
+    <h1>Events</h1>
+
+    <h2>Demnächst</h2>
+    {
+      upcoming.length ? (
+        <div class="cards">{upcoming.map((e) => <EventCard event={e} />)}</div>
+      ) : (
+        <p class="muted">Zurzeit sind keine Events geplant.</p>
+      )
+    }
+
+    {
+      pastByYear.map(([year, events]) => (
+        <>
+          <h2>{year}</h2>
+          <div class="cards">{events.map((e) => <EventCard event={e} />)}</div>
+        </>
+      ))
+    }
+  </div>
+</Base>
