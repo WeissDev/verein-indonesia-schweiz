@@ -11,8 +11,10 @@ export function splitEvents(events, today = day(new Date())) {
   };
 }
 
-const fmt = new Intl.DateTimeFormat('de-CH', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const LOCALE = { de: 'de-CH', id: 'id-ID' };
+const fmt = (lang) => new Intl.DateTimeFormat(LOCALE[lang], { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
-export function formatEventDate({ eventDate, endDate }) {
-  return endDate ? `${fmt.format(eventDate)} – ${fmt.format(endDate)}` : fmt.format(eventDate);
+export function formatEventDate({ eventDate, endDate }, lang = 'de') {
+  const f = fmt(lang);
+  return endDate ? `${f.format(eventDate)} – ${f.format(endDate)}` : f.format(eventDate);
 }

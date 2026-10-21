@@ -1,0 +1,8 @@
+---
+import EventDetail from '../../../views/EventDetail.astro';
+import { eventPaths } from '../../../lib/paths';
+
+export const getStaticPaths = eventPaths;
+---
+
+<EventDetail event={Astro.props.event} lang="id" />

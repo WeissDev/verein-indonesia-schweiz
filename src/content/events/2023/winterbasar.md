@@ -4,6 +4,18 @@ eventDate: 2023-12-03
 time: "12:30 – 18:00"
 location: "Musiksaal Kurbrunnen, Habich-Dietschy-Strasse 14, 4310 Rheinfelden"
 image: "@images/events/2023/2023-winterbasar-flyer.jpeg"
+indonesia:
+  title: "Bazar Musim Dingin"
+  body: |
+    ## Tempat dan Tanggal
+
+    **3 Desember 2023, 12.30 – 18.00, Musiksaal Kurbrunnen, Habich-Dietschy-Strasse 14, 4310 Rheinfelden**
+
+    Musim dingin telah tiba, saatnya duduk di dalam ruangan yang hangat sambil menikmati kuliner dan produk-produk kreatif Nusantara, diiringi tari dan musik.
+
+    Dalam kesempatan ini kita juga akan berkenalan dengan duta besar yang baru, Bapak Ngurah Swajaya, beserta istri beliau.
+
+    Ajak keluarga dan teman-teman Anda untuk mengunjungi bazar ini!
 ---
 
 ## Ort und Datum

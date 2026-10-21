@@ -6,6 +6,15 @@ import { z } from 'astro/zod';
 // The editor saves empty fields as "", which would fail date/image parsing.
 const optional = <T extends z.ZodTypeAny>(schema: T) => z.preprocess((v) => (v === '' || v === null ? undefined : v), schema.optional());
 
+// Indonesian translation, stored next to the German content in the same file
+const indonesia = z
+  .object({
+    title: z.string().optional(),
+    summary: z.string().optional(),
+    body: z.string().optional(), // Markdown
+  })
+  .optional();
+
 const events = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: ({ image }) =>
@@ -18,6 +27,7 @@ const events = defineCollection({
       image: optional(image()),
       summary: z.string().optional(),
       draft: z.boolean().default(false),
+      indonesia,
     }),
 });
 
@@ -36,9 +46,11 @@ const pages = defineCollection({
             role: z.string().optional(),
             photo: optional(image()),
             bio: z.string().optional(),
+            indonesia: z.object({ role: z.string().optional(), bio: z.string().optional() }).optional(),
           }),
         )
         .default([]),
+      indonesia,
     }),
 });
 

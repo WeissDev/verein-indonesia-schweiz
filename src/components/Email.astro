@@ -1,12 +1,12 @@
 ---
 // Anti-scraping: the address never appears whole in the HTML (not even encoded). Name and domain
 // are stored reversed in separate attributes and only joined after a real click.
-const { addr = 'info', domain = 'vereinindonesiaschweiz.ch' } = Astro.props;
+const { addr = 'info', domain = 'vereinindonesiaschweiz.ch', label = 'E-Mail-Adresse anzeigen' } = Astro.props;
 const rev = (s: string) => [...s].reverse().join('');
 ---
 
 <button type="button" class="email-reveal cursor-pointer underline decoration-dotted underline-offset-4" data-u={rev(addr)} data-d={rev(domain)}>
-  E-Mail-Adresse anzeigen
+  {label}
 </button>
 
 <script>

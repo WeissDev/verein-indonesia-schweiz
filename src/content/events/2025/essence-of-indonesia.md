@@ -4,6 +4,25 @@ eventDate: 2025-05-11
 time: "11:30 – 17:00"
 location: "Bahnhofsaal, Bahnhofstrasse 21, 4310 Rheinfelden"
 image: "@images/events/2025/essence-of-indonesia.jpeg"
+indonesia:
+  summary: "Perjalanan yang memadukan tradisi dan inovasi – termasuk makan siang prasmanan."
+  body: |
+    **Minggu, 11 Mei 2025, 11.30 – 17.00**\
+    Bahnhofstrasse 21, 4310 Rheinfelden\
+    (Bahnhofsaal Rheinfelden)
+
+    **TEMUKAN HATI DAN JIWA INDONESIA**
+
+    Bergabunglah bersama kami dalam perjalanan yang memadukan tradisi dan inovasi, dan temukan esensi Indonesia – di mana setiap momen adalah perayaan budaya, cita rasa, dan keindahan alam.
+
+    Tiket masuk sudah termasuk makan siang (prasmanan) & air mineral:
+
+    - Anggota, pelajar/mahasiswa, pensiunan: CHF 29.–
+    - Bukan anggota: CHF 39.–
+    - Remaja (10–17 tahun): CHF 25.–
+
+    ![Program Essence of Indonesia](@images/events/2025/essence-of-indonesia-program.jpeg)
+    ![Rumah Indonesia](@images/events/2025/rumah-indonesia.jpeg)
 ---
 
 **So, 11. Mai 2025, 11.30 – 17.00**\

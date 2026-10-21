@@ -4,6 +4,23 @@ eventDate: 2023-06-04
 time: "12:30 – 17:30"
 location: "Bahnhofstrasse 21, 4310 Rheinfelden"
 image: "@images/events/2023/2023-fruehsommerfest-backdrop.jpeg"
+indonesia:
+  title: "Bazar Awal Musim Panas"
+  body: |
+    Temukan kuliner autentik dan produk kreatif dari berbagai pulau di Indonesia.
+
+    Pertunjukan khusus mulai pukul 13.30:
+
+    * Peragaan busana eco-print
+    * Produk unggulan dari Komang Darmiani
+
+    Hiburan musik oleh band live: Otep & Friend
+
+    ## Tempat dan Tanggal
+
+    **4 Juni 2023, 12.30 – 17.30, Bahnhofstrasse 21, 4310 Rheinfelden**
+
+    ![Flyer Bazar Awal Musim Panas 2023](@images/events/2023/2023-fruehsommerfest.jpeg)
 ---
 
 Entdecken Sie authentische kulinarische Spezialitäten und kreative Produkte aus verschiedenen Inseln Indonesiens.

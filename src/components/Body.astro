@@ -1,0 +1,24 @@
+---
+import { render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { marked } from 'marked';
+import { t, type Lang } from '../i18n';
+
+// German body is the entry's Markdown; the Indonesian one is a Markdown string in the frontmatter.
+const { entry, lang } = Astro.props as { entry: any; lang: Lang };
+const idBody: string | undefined = lang === 'id' ? entry.data.indonesia?.body : undefined;
+const Content = idBody ? null : (await render(entry)).Content;
+
+let html = idBody ? await marked.parse(idBody) : '';
+// Resolve "@images/..." like Astro does for the German Markdown (optimized, and a missing file fails the build)
+const images = import.meta.glob<ImageMetadata>('/src/assets/images/**/*.{jpg,jpeg,png,webp,gif}', { eager: true, import: 'default' });
+for (const p of new Set([...html.matchAll(/src="@images\/([^"]+)"/g)].map((m) => m[1]))) {
+  const meta = images[`/src/assets/images/${decodeURI(p)}`];
+  if (!meta) throw new Error(`Image not found in Indonesian text of "${entry.id}": @images/${p}`);
+  html = html.replaceAll(`src="@images/${p}"`, `src="${(await getImage({ src: meta, width: Math.min(meta.width, 1200), format: 'webp' })).src}"`);
+}
+---
+
+{lang === 'id' && !idBody && <p class="not-prose mb-6 rounded-lg border-l-4 border-prada-400 bg-mori-100 px-4 py-3 text-sm">{t('id', 'notTranslated')}</p>}
+{idBody ? <Fragment set:html={html} /> : Content && <Content />}

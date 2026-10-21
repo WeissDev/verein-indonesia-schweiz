@@ -1,6 +1,8 @@
 ---
-const { date, size = 'md' } = Astro.props;
-const month = new Intl.DateTimeFormat('de-CH', { month: 'short', timeZone: 'UTC' }).format(date);
+import { HTML_LANG } from '../i18n';
+
+const { date, size = 'md', lang = 'de' } = Astro.props;
+const month = new Intl.DateTimeFormat(HTML_LANG[lang], { month: 'short', timeZone: 'UTC' }).format(date);
 const lg = size === 'lg';
 ---
 

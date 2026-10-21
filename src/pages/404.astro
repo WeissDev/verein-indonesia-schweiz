@@ -2,12 +2,18 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Seite nicht gefunden">
+<!-- One 404 for both languages, so it says it in both -->
+<Base title="Seite nicht gefunden · Halaman tidak ditemukan">
   <div class="mx-auto max-w-3xl px-4 py-16">
     <h1 class="text-4xl font-bold">Seite nicht gefunden</h1>
     <p class="mt-4">
       Diese Seite gibt es nicht (mehr). Zurück zur <a class="text-merah-600" href="/">Startseite</a> oder zu den
       <a class="text-merah-600" href="/events/">Events</a>.
+    </p>
+    <h2 class="mt-10 text-2xl font-bold" lang="id-ID">Halaman tidak ditemukan</h2>
+    <p class="mt-2" lang="id-ID">
+      Halaman ini tidak ada (lagi). Kembali ke <a class="text-merah-600" href="/id/">beranda</a> atau ke
+      <a class="text-merah-600" href="/id/events/">daftar acara</a>.
     </p>
   </div>
 </Base>

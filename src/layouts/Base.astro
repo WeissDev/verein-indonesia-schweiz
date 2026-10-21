@@ -1,33 +1,38 @@
 ---
 import Email from '../components/Email.astro';
 import { shareImageUrl } from '../lib/shareImage';
+import { t, localePath, switchPath, LANGS, HTML_LANG, OG_LOCALE, type Lang } from '../i18n';
 import '../styles/global.css';
 
-const { title, description = 'Die Austauschplattform für Indonesier, Schweizer und alle Interessierten', image, type = 'website', jsonLd } = Astro.props;
+const { lang = 'de' as Lang, title, description = t(lang, 'site.description'), image, type = 'website', jsonLd } = Astro.props;
 const siteName = 'Verein Indonesia Schweiz';
 const fullTitle = title && title !== siteName ? `${title} – ${siteName}` : siteName;
+const path = Astro.url.pathname;
 // Always the real domain, so the *.pages.dev copy doesn't compete in search
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const canonical = new URL(path, Astro.site).href;
+const alternates = LANGS.map((l) => ({ lang: l, href: new URL(switchPath(path, l), Astro.site).href }));
 const ogImage = await shareImageUrl(image, Astro.site!);
 const nav = [
-  { href: '/events/', label: 'Events' },
-  { href: '/ueber-uns/', label: 'Über uns' },
+  { href: localePath(lang, '/events/'), label: t(lang, 'nav.events') },
+  { href: localePath(lang, '/ueber-uns/'), label: t(lang, 'nav.about') },
 ];
-const path = Astro.url.pathname;
+const memberHref = localePath(lang, '/mitgliedschaft/');
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={HTML_LANG[lang]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={HTML_LANG[a.lang]} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={alternates[0].href} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:locale" content="de_CH" />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
@@ -39,11 +44,11 @@ const path = Astro.url.pathname;
   <body class="flex min-h-screen flex-col">
     <header class="border-t-4 border-merah-600 border-b border-b-mori-200 bg-mori-50">
       <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
-        <a class="flex items-center gap-3 font-serif text-lg font-bold text-soga-900 no-underline" href="/">
+        <a class="flex items-center gap-3 font-serif text-lg font-bold text-soga-900 no-underline" href={localePath(lang, '/')}>
           <img src="/images/logos/Logo-Verein-Indonesia-Schweiz.png" alt="" width="40" height="40" />
           Verein Indonesia Schweiz
         </a>
-        <nav aria-label="Hauptnavigation" class="flex flex-wrap items-center gap-5">
+        <nav aria-label={t(lang, 'nav.label')} class="flex flex-wrap items-center gap-5">
           {
             nav.map((n) => (
               <a
@@ -56,12 +61,28 @@ const path = Astro.url.pathname;
             ))
           }
           <a
-            href="/mitgliedschaft/"
-            aria-current={path.startsWith('/mitgliedschaft/') ? 'page' : undefined}
+            href={memberHref}
+            aria-current={path.startsWith(memberHref) ? 'page' : undefined}
             class="rounded-full bg-merah-600 px-4 py-1.5 text-sm font-semibold text-white no-underline hover:bg-merah-700"
           >
-            Mitglied werden
+            {t(lang, 'nav.member')}
           </a>
+          <span class="flex items-center gap-1 text-sm font-semibold" aria-label={t(lang, 'lang.label')}>
+            {
+              alternates.map((a, i) => (
+                <>
+                  {i > 0 && <span class="text-soga-300" aria-hidden="true">|</span>}
+                  {a.lang === lang ? (
+                    <span class="text-merah-600" aria-current="true">{a.lang.toUpperCase()}</span>
+                  ) : (
+                    <a href={switchPath(path, a.lang)} hreflang={HTML_LANG[a.lang]} lang={HTML_LANG[a.lang]} class="text-soga-500 no-underline hover:text-merah-600">
+                      {a.lang.toUpperCase()}
+                    </a>
+                  )}
+                </>
+              ))
+            }
+          </span>
         </nav>
       </div>
     </header>
@@ -74,17 +95,17 @@ const path = Astro.url.pathname;
       <div class="bg-kawung h-4 bg-soga-900" aria-hidden="true"></div>
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 text-sm sm:grid-cols-3">
         <div>
-          <h2 class="mb-2 text-base font-semibold text-prada-400">Kontakt</h2>
-          <p class="[&_a]:text-white"><Email /></p>
-          <p class="mt-2"><a class="text-white" href="https://www.facebook.com/groups/94359495038" rel="noopener">Facebook-Gruppe</a></p>
+          <h2 class="mb-2 text-base font-semibold text-prada-400">{t(lang, 'footer.contact')}</h2>
+          <p class="[&_a]:text-white"><Email label={t(lang, 'email.reveal')} /></p>
+          <p class="mt-2"><a class="text-white" href="https://www.facebook.com/groups/94359495038" rel="noopener">{t(lang, 'footer.facebook')}</a></p>
         </div>
         <div>
-          <h2 class="mb-2 text-base font-semibold text-prada-400">Spenden</h2>
-          <p>Verein Indonesia-Schweiz<br />Migros Bank AG<br />Kontonummer: 80-533-6<br />IBAN: CH91 0840 1000 0561 0910 5</p>
+          <h2 class="mb-2 text-base font-semibold text-prada-400">{t(lang, 'footer.donations')}</h2>
+          <p>Verein Indonesia-Schweiz<br />Migros Bank AG<br />{t(lang, 'footer.account')}: 80-533-6<br />IBAN: CH91 0840 1000 0561 0910 5</p>
         </div>
         <div>
-          <h2 class="mb-2 text-base font-semibold text-prada-400">Mitgliederbeiträge</h2>
-          <p>Verein Indonesia-Schweiz<br />Post Finance AG, 4808 Zofingen<br />Kontonummer: 80-37981-2<br />IBAN: CH39 0900 0000 8003 7981 2<br />BIC: POFICHBEXXX</p>
+          <h2 class="mb-2 text-base font-semibold text-prada-400">{t(lang, 'footer.fees')}</h2>
+          <p>Verein Indonesia-Schweiz<br />Post Finance AG, 4808 Zofingen<br />{t(lang, 'footer.account')}: 80-37981-2<br />IBAN: CH39 0900 0000 8003 7981 2<br />BIC: POFICHBEXXX</p>
         </div>
       </div>
       <p class="mx-auto max-w-6xl px-4 pb-6 text-xs text-mori-200/70">© {new Date().getFullYear()} Verein Indonesia Schweiz</p>

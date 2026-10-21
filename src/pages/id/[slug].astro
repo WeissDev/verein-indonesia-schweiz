@@ -1,0 +1,8 @@
+---
+import ContentPage from '../../views/ContentPage.astro';
+import { pagePaths } from '../../lib/paths';
+
+export const getStaticPaths = pagePaths;
+---
+
+<ContentPage page={Astro.props.page} lang="id" />

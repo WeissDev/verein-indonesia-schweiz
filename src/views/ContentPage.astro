@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Body from '../components/Body.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { t, localized, type Lang } from '../i18n';
+
+const { page, lang } = Astro.props as { page: any; lang: Lang };
+const { title, summary, image, team } = localized(page.data, lang);
+---
+
+<Base lang={lang} title={title} description={summary} image={image}>
+  <PageHeader title={title} eyebrow="Verein Indonesia Schweiz" />
+  <article class="prose prose-lg prose-stone prose-headings:font-serif prose-a:text-merah-600 prose-img:rounded-xl mx-auto max-w-3xl px-4 py-14">
+    <Body entry={page} lang={lang} />
+  </article>
+
+  {
+    team.length > 0 && (
+      <section class="border-t border-mori-200 bg-mori-100">
+        <div class="mx-auto max-w-6xl px-4 py-14">
+          <h2 class="mb-8 text-3xl font-bold">{t(lang, 'team.title')}</h2>
+          <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {team.map((m: any) => {
+              const role = (lang === 'id' && m.indonesia?.role) || m.role;
+              const bio = (lang === 'id' && m.indonesia?.bio) || m.bio;
+              return (
+                <li class="flex flex-col">
+                  {m.photo ? (
+                    <Image
+                      src={m.photo}
+                      alt={m.name}
+                      width={280}
+                      height={280}
+                      densities={[1, 2]}
+                      class="aspect-square w-full rounded-2xl border-4 border-prada-400 object-cover shadow-sm"
+                    />
+                  ) : (
+                    <div class="bg-kawung aspect-square w-full rounded-2xl border-4 border-prada-400 bg-soga-700" aria-hidden="true" />
+                  )}
+                  <h3 class="mt-4 text-xl font-bold">{m.name}</h3>
+                  {role && <p class="text-sm font-semibold tracking-wide text-merah-600 uppercase">{role}</p>}
+                  {bio && <p class="mt-2 text-sm text-soga-700">{bio}</p>}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+</Base>

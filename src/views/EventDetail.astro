@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Body from '../components/Body.astro';
+import PageHeader from '../components/PageHeader.astro';
+import DateBlock from '../components/DateBlock.astro';
+import { formatEventDate } from '../lib/events.js';
+import { eventJsonLd } from '../lib/seo.js';
+import { shareImageUrl } from '../lib/shareImage';
+import { t, localePath, localized, type Lang } from '../i18n';
+
+const { event, lang } = Astro.props as { event: any; lang: Lang };
+const data = localized(event.data, lang);
+const { title, eventDate, time, location, image, summary } = data;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = eventJsonLd(data, { url, image: image && (await shareImageUrl(image, Astro.site!)) });
+const mapsUrl = location && `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+const label = 'font-semibold tracking-wide text-prada-700 uppercase';
+---
+
+<Base lang={lang} title={title} description={summary ?? `${formatEventDate(data, lang)}${location ? `, ${location}` : ''}`} image={image} type="article" jsonLd={jsonLd}>
+  <PageHeader title={title} eyebrow={t(lang, 'event.eyebrow')}>
+    {summary && <p class="mt-4 max-w-2xl text-lg text-mori-200">{summary}</p>}
+  </PageHeader>
+
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[1fr_20rem]">
+    <aside class="lg:order-2">
+      <div class="space-y-5 rounded-2xl border border-mori-200 bg-white p-6 shadow-sm lg:sticky lg:top-6">
+        <DateBlock date={eventDate} size="lg" lang={lang} />
+        <dl class="space-y-3 text-sm">
+          <div><dt class={label}>{t(lang, 'event.date')}</dt><dd>{formatEventDate(data, lang)}</dd></div>
+          {time && <div><dt class={label}>{t(lang, 'event.time')}</dt><dd>{time}</dd></div>}
+          {location && <div><dt class={label}>{t(lang, 'event.place')}</dt><dd>{location}</dd></div>}
+        </dl>
+        {
+          mapsUrl && (
+            <a href={mapsUrl} target="_blank" rel="noopener" class="block rounded-full bg-merah-600 px-5 py-2.5 text-center font-semibold text-white no-underline hover:bg-merah-700">
+              {t(lang, 'event.route')}
+            </a>
+          )
+        }
+        <a href={localePath(lang, '/events/')} class="block text-center text-sm font-semibold text-merah-600">{t(lang, 'event.back')}</a>
+      </div>
+    </aside>
+
+    <article class="min-w-0">
+      {
+        image && (
+          <Image
+            class="mb-10 max-h-[85vh] w-auto rounded-xl shadow-lg"
+            src={image}
+            alt={`${t(lang, 'event.flyer')}: ${title}`}
+            widths={[600, 1200]}
+            sizes="(min-width: 1024px) 720px, 100vw"
+            loading="eager"
+          />
+        )
+      }
+      <div class="prose prose-stone prose-headings:font-serif prose-a:text-merah-600 prose-img:rounded-xl">
+        <Body entry={event} lang={lang} />
+      </div>
+    </article>
+  </div>
+</Base>

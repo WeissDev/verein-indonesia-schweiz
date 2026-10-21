@@ -59,6 +59,15 @@ content:
       - name: body
         label: Text
         type: rich-text
+      # Indonesian translation (shown at /id/...); empty fields fall back to German
+      - &indonesia
+        name: indonesia
+        label: Bahasa Indonesia (Übersetzung)
+        type: object
+        fields:
+          - { name: title, label: Judul, type: string }
+          - { name: summary, label: Ringkasan, type: text }
+          - { name: body, label: Teks, type: rich-text, options: { format: markdown } }
 
   - name: home
     label: Startseite
@@ -69,6 +78,7 @@ content:
       - { name: summary, label: Untertitel, type: string }
       - { name: image, label: Titelbild, type: image }
       - { name: body, label: Text, type: rich-text }
+      - *indonesia
 
   - name: pages
     label: Seiten
@@ -89,3 +99,10 @@ content:
           - { name: role, label: Funktion, type: string }
           - { name: photo, label: Foto, type: image }
           - { name: bio, label: Kurzporträt, type: text }
+          - name: indonesia
+            label: Bahasa Indonesia
+            type: object
+            fields:
+              - { name: role, label: Jabatan, type: string }
+              - { name: bio, label: Profil singkat, type: text }
+      - *indonesia

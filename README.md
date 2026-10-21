@@ -11,6 +11,9 @@ Static [Astro](https://astro.build) site, edited with [Pages CMS](https://app.pa
    Kommende Events erscheinen automatisch auf der Startseite; vergangene wandern ins Archiv.
 
 Tipp: «Entwurf» ankreuzen, um einen Event zu speichern, ohne ihn zu veröffentlichen.
+
+**Indonesische Version:** Jedes Formular hat unten den Bereich «Bahasa Indonesia». Was dort steht, erscheint auf der
+indonesischen Seite (`/id/...`). Leere Felder zeigen automatisch den deutschen Text.
 Startseite, «Über uns» und «Mitgliedschaft» lassen sich gleich bearbeiten (Startseite / Seiten).
 
 ## Development

@@ -5,6 +5,103 @@ time: "12:30 – 22:00"
 location: "Kurbrunnenanlage, Habich-Dietschy-Strasse 14, 4310 Rheinfelden"
 image: "@images/events/2026/indonesia-festival-flyer.jpeg"
 summary: "75 Jahre Schweiz–Indonesien: Streetfood, Tanz, Musik, Workshops und Fashion Show. Freier Eintritt."
+indonesia:
+  title: "Festival Indonesia @Rheinfelden"
+  summary: "75 tahun hubungan Swiss–Indonesia: jajanan khas, tari, musik, lokakarya, dan peragaan busana. Masuk gratis."
+  body: |
+    # 🇮🇩 Festival Indonesia
+
+    ## @Rheinfelden – 75 Tahun Hubungan Swiss–Indonesia
+
+    ---
+
+    ### 🎟️ Masuk gratis
+
+    📍 **Kurbrunnenanlage, Habich-Dietschy-Strasse 14, 4310 Rheinfelden, Swiss**
+    📅 **Tanggal:** Sabtu, 22 Agustus 2026
+    🕧 **Waktu:** 12.30 – 22.00
+
+    ---
+
+    ### 👑 Tamu Kehormatan
+
+    **Nilam Onasis – Duta Budaya Indonesia**
+
+    Dalam rangka 75 tahun hubungan diplomatik antara Indonesia dan Swiss, Duta Budaya Indonesia Nilam Onasis hadir di Festival Indonesia.
+
+    **Bekerja sama dengan:** Mustika Ratu (BRA Mooryati Soedibyo) & Yayasan Puteri Indonesia
+
+    ---
+
+    ### ✨ Nikmati program yang beragam dan menarik
+
+    - Jajanan khas Indonesia & produk non-makanan
+    - Pertunjukan tari tradisional
+    - Musik tradisional Indonesia & musik live
+    - Lokakarya: angklung dan melukis
+    - Peragaan busana oleh Komang Darmiani
+    - Pameran seni: tekstil, fotografi, dan lukisan
+    - Video pariwisata & presentasi produk inovatif UMKM
+
+    ---
+
+    ### 🎭 Program Panggung Luar
+
+    - **12.30 – 22.00** Jajanan khas
+    - **13.30** Musik live
+    - **14.00** Sambutan – Ketua perkumpulan dan Duta Besar Indonesia, Bapak Ngurah Swajaya
+    - **14.25** Tari Piring – Sumatra Barat
+    - **14.31** Konser angklung live (alat musik dari bambu)
+    - **14.51** Peragaan busana
+    - **15.11** Tari Teruna Jaya – Bali
+    - **15.17** Tari Topeng Koncaran – Jawa Barat
+    - **15.14** Musik live
+    - **16.30** Lokakarya angklung
+    - **18.30** Tari Merak – Jawa Barat
+    - **18.36** Peragaan busana
+    - **19.06** Konser angklung live
+    - **18.36** Musik live
+    - **19.00** Tari Yapong – Betawi/Jakarta
+    - **19.06** Peragaan busana
+    - **19.36 – 21.30** Musik live
+
+    ---
+
+    ### 🎨 Di Trinkhalle – Pameran & Lokakarya mulai pukul 14.00
+
+    - Pameran seni oleh Julie Siahaan
+    - Lokakarya melukis bersama Julie Siahaan – mulai pukul 15.00, biaya: CHF 10.–
+    - Pameran foto oleh Dr. phil. nat. Heinz Köchli
+    - Pameran tekstil – Rumah Indonesia
+    - Produk kreatif Indonesia dari UMKM – Atase Perdagangan & Rumah Indonesia
+
+    ---
+
+    ### 🎬 Di Musiksaal – Program
+
+    Program dukungan pendidikan untuk anak-anak di Sumatra Barat dan Aceh
+    (Program bantuan dan pemulihan pascabanjir besar di Sumatra – bekerja sama dengan Yayasan KITABISA)
+
+    Wonderful Indonesia – Pariwisata
+
+    ---
+
+    **Jangan lewatkan festival ini! Ajak keluarga dan teman-teman Anda, dan rayakan bersama kami!**
+
+    ---
+
+    ### 📞 Kontak
+
+    🌐 **Info lebih lanjut:** [vereinindonesiaschweiz.ch](https://vereinindonesiaschweiz.ch)
+
+    ---
+
+    **Diselenggarakan oleh:** *Verein Indonesia Schweiz* 🇨🇭🇮🇩
+    **Didukung oleh:** Rumah Indonesia, Coffeenatics, Kedutaan Besar Republik Indonesia, Atase Perdagangan & Feldschlösschen
+    **Disponsori oleh:** Kota Rheinfelden
+
+    ![Program Festival Indonesia 2026](@images/events/2026/indonesia-festival-flyer-back.jpeg)
+    ![Nilam Onasis – Duta Budaya Indonesia](@images/events/2026/ambassador-flyer.jpeg)
 ---
 
 # 🇮🇩 Indonesien Festival / Indonesia Festival

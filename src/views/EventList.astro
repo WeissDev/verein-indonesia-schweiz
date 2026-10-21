@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import EventRow from '../components/EventRow.astro';
+import { splitEvents } from '../lib/events.js';
+import { t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const { upcoming, past } = splitEvents(await getCollection('events'));
+const pastByYear = Object.entries(Object.groupBy(past, (e) => String(e.data.eventDate.getUTCFullYear()))).sort(([a], [b]) => Number(b) - Number(a));
+---
+
+<Base lang={lang} title={t(lang, 'events.title')} description={t(lang, 'events.lead')}>
+  <PageHeader title={t(lang, 'events.title')} eyebrow={t(lang, 'events.eyebrow')}>
+    <p class="mt-4 max-w-2xl text-lg text-mori-200">{t(lang, 'events.lead')}</p>
+  </PageHeader>
+
+  <div class="mx-auto max-w-6xl px-4 py-14">
+    <section class="grid gap-4 md:grid-cols-[10rem_1fr] md:gap-10">
+      <h2 class="text-2xl font-bold text-merah-600 md:sticky md:top-6 md:self-start">{t(lang, 'events.upcoming')}</h2>
+      {
+        upcoming.length ? (
+          <div class="divide-y divide-mori-200">{upcoming.map((e) => <EventRow event={e} lang={lang} />)}</div>
+        ) : (
+          <p class="rounded-xl border border-dashed border-soga-300 bg-mori-100 p-6 text-soga-700">{t(lang, 'events.none')}</p>
+        )
+      }
+    </section>
+
+    {
+      pastByYear.map(([year, events]) => (
+        <section class="mt-14 grid gap-4 border-t border-mori-200 pt-10 md:grid-cols-[10rem_1fr] md:gap-10">
+          <h2 class="font-serif text-5xl font-bold text-prada-700 md:sticky md:top-6 md:self-start">{year}</h2>
+          <div class="divide-y divide-mori-200">{events!.map((e) => <EventRow event={e} lang={lang} />)}</div>
+        </section>
+      ))
+    }
+  </div>
+</Base>
