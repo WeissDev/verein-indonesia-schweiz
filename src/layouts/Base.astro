@@ -43,10 +43,10 @@ const memberHref = localePath(lang, '/mitgliedschaft/');
   </head>
   <body class="flex min-h-screen flex-col">
     <header class="border-t-4 border-merah-600 border-b border-b-mori-200 bg-mori-50">
-      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
-        <a class="flex items-center gap-3 font-serif text-lg font-bold text-soga-900 no-underline" href={localePath(lang, '/')}>
-          <img src="/images/logos/Logo-Verein-Indonesia-Schweiz.png" alt="" width="40" height="40" />
-          Verein Indonesia Schweiz
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4">
+        <!-- The logo is a wordmark that already spells the name, so no extra text next to it -->
+        <a class="shrink-0" href={localePath(lang, '/')}>
+          <img src="/images/logos/Logo-Verein-Indonesia-Schweiz.png" alt={siteName} width="700" height="329" class="h-12 w-auto sm:h-14" />
         </a>
         <nav aria-label={t(lang, 'nav.label')} class="flex flex-wrap items-center gap-5">
           {
