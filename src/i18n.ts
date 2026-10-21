@@ -42,8 +42,6 @@ const ui = {
     'footer.fees': 'Mitgliederbeiträge',
     'footer.account': 'Kontonummer',
     'email.reveal': 'E-Mail-Adresse anzeigen',
-    'ig.follow': 'Folgen Sie uns',
-    'ig.post': 'Instagram-Beitrag',
     'notTranslated': '',
   },
   id: {
@@ -83,8 +81,6 @@ const ui = {
     'footer.fees': 'Iuran Anggota',
     'footer.account': 'Nomor rekening',
     'email.reveal': 'Tampilkan alamat email',
-    'ig.follow': 'Ikuti kami',
-    'ig.post': 'Unggahan Instagram',
     'notTranslated': 'Konten ini belum tersedia dalam Bahasa Indonesia. Berikut versi bahasa Jerman.',
   },
 } satisfies Record<Lang, Record<string, string>>;

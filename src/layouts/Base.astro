@@ -1,7 +1,6 @@
 ---
 import Email from '../components/Email.astro';
 import { shareImageUrl } from '../lib/shareImage';
-import { IG_PROFILE, IG_HANDLE } from '../lib/instagram.js';
 import { t, localePath, switchPath, LANGS, HTML_LANG, OG_LOCALE, type Lang } from '../i18n';
 import '../styles/global.css';
 
@@ -99,7 +98,7 @@ const memberHref = localePath(lang, '/mitgliedschaft/');
           <h2 class="mb-2 text-base font-semibold text-prada-400">{t(lang, 'footer.contact')}</h2>
           <p class="[&_a]:text-white"><Email label={t(lang, 'email.reveal')} /></p>
           <p class="mt-2"><a class="text-white" href="https://www.facebook.com/groups/94359495038" rel="noopener">{t(lang, 'footer.facebook')}</a></p>
-          <p class="mt-1"><a class="text-white" href={IG_PROFILE} rel="noopener">Instagram {IG_HANDLE}</a></p>
+          <p class="mt-1"><a class="text-white" href="https://www.instagram.com/vis20225/" rel="noopener">Instagram @vis20225</a></p>
         </div>
         <div>
           <h2 class="mb-2 text-base font-semibold text-prada-400">{t(lang, 'footer.donations')}</h2>
