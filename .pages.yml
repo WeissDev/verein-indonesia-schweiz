@@ -80,3 +80,12 @@ content:
     fields:
       - { name: title, label: Titel, type: string, required: true }
       - { name: body, label: Text, type: rich-text }
+      - name: team
+        label: Vorstand (nur «Über uns»)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: role, label: Funktion, type: string }
+          - { name: photo, label: Foto, type: image }
+          - { name: bio, label: Kurzporträt, type: text }

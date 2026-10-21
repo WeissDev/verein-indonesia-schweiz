@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 
@@ -11,6 +12,7 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await render(page);
+const { team } = page.data;
 ---
 
 <Base title={page.data.title} description={page.data.summary} image={page.data.image}>
@@ -18,4 +20,35 @@ const { Content } = await render(page);
   <article class="prose prose-lg prose-stone prose-headings:font-serif prose-a:text-merah-600 prose-img:rounded-xl mx-auto max-w-3xl px-4 py-14">
     <Content />
   </article>
+
+  {
+    team.length > 0 && (
+      <section class="border-t border-mori-200 bg-mori-100">
+        <div class="mx-auto max-w-6xl px-4 py-14">
+          <h2 class="mb-8 text-3xl font-bold">Der Vereinsvorstand</h2>
+          <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {team.map((m) => (
+              <li class="flex flex-col">
+                {m.photo ? (
+                  <Image
+                    src={m.photo}
+                    alt={m.name}
+                    width={280}
+                    height={280}
+                    densities={[1, 2]}
+                    class="aspect-square w-full rounded-2xl border-4 border-prada-400 object-cover shadow-sm"
+                  />
+                ) : (
+                  <div class="bg-kawung aspect-square w-full rounded-2xl border-4 border-prada-400 bg-soga-700" aria-hidden="true" />
+                )}
+                <h3 class="mt-4 text-xl font-bold">{m.name}</h3>
+                {m.role && <p class="text-sm font-semibold tracking-wide text-merah-600 uppercase">{m.role}</p>}
+                {m.bio && <p class="mt-2 text-sm text-soga-700">{m.bio}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
 </Base>

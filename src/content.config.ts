@@ -28,6 +28,17 @@ const pages = defineCollection({
       title: z.string(),
       summary: z.string().optional(),
       image: optional(image()),
+      // Vorstand; shown as a grid below the text
+      team: z
+        .array(
+          z.object({
+            name: z.string(),
+            role: z.string().optional(),
+            photo: optional(image()),
+            bio: z.string().optional(),
+          }),
+        )
+        .default([]),
     }),
 });
 
