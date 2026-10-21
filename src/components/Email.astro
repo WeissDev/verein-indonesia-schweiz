@@ -1,17 +1,24 @@
 ---
-// Address is base64-encoded and only turned into a link by JS, to keep it from simple scrapers.
+// Anti-scraping: the address never appears whole in the HTML (not even encoded). Name and domain
+// are stored reversed in separate attributes and only joined after a real click.
 const { addr = 'info', domain = 'vereinindonesiaschweiz.ch' } = Astro.props;
-const encoded = btoa(`${addr}@${domain}`);
+const rev = (s: string) => [...s].reverse().join('');
 ---
 
-<span class="email" data-e={encoded}><noscript>[E-Mail: bitte JavaScript aktivieren]</noscript></span>
+<button type="button" class="email-reveal cursor-pointer underline decoration-dotted underline-offset-4" data-u={rev(addr)} data-d={rev(domain)}>
+  E-Mail-Adresse anzeigen
+</button>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.email[data-e]').forEach((el) => {
-    const address = atob(el.dataset.e!);
-    const link = document.createElement('a');
-    link.href = `mailto:${address}`;
-    link.textContent = address;
-    el.replaceChildren(link);
+  const rev = (s: string) => [...s].reverse().join('');
+  document.querySelectorAll<HTMLButtonElement>('.email-reveal').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const address = `${rev(btn.dataset.u!)}@${rev(btn.dataset.d!)}`;
+      const link = document.createElement('a');
+      link.href = `mailto:${address}`;
+      link.textContent = address;
+      btn.replaceWith(link);
+      link.focus();
+    });
   });
 </script>
