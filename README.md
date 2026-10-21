@@ -38,3 +38,8 @@ npm test
 3. Settings → Builds → Deploy hooks → create one for `main`; save its URL as the GitHub repo secret `CF_DEPLOY_HOOK`
    (used by `.github/workflows/nightly-rebuild.yml` so past events leave the homepage).
 4. Editors: invite their GitHub accounts as repo collaborators (Write access), then they log in at app.pagescms.org.
+5. Instagram feed (optional): the Instagram account must be a professional (Business or Creator) account, which is free.
+   Create a free feed at [behold.so](https://behold.so) for @vis20225 and copy its JSON feed URL (`https://feeds.behold.so/…`).
+   In Cloudflare Pages, add the environment variable `BEHOLD_FEED_URL` with that URL, then redeploy.
+   The latest 6 posts are fetched at build time (the nightly rebuild refreshes them); without the variable the homepage
+   shows just a "follow us" link. Local preview: `BEHOLD_FEED_URL=… npm run dev`.

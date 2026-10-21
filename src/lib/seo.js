@@ -4,7 +4,7 @@ export const ORG = {
   name: 'Verein Indonesia Schweiz',
   url: 'https://vereinindonesiaschweiz.ch',
   logo: 'https://vereinindonesiaschweiz.ch/images/logos/Logo-Verein-Indonesia-Schweiz.png',
-  sameAs: ['https://www.facebook.com/groups/94359495038'],
+  sameAs: ['https://www.facebook.com/groups/94359495038', 'https://www.instagram.com/vis20225/'],
 };
 
 export const orgJsonLd = (description) => ({ '@context': 'https://schema.org', ...ORG, description, areaServed: 'CH' });

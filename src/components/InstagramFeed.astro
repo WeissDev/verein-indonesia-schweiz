@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import { getInstagram, IG_PROFILE, IG_HANDLE } from '../lib/instagram.js';
+import { t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+// Images are downloaded at build time and served from our domain (no Instagram/Behold requests from visitors)
+const posts = (await getInstagram()).slice(0, 6);
+---
+
+<section class="mx-auto max-w-6xl px-4 py-14">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <p class="text-sm font-semibold tracking-[0.2em] text-prada-700 uppercase">Instagram</p>
+      <h2 class="mt-1 text-3xl font-bold">{IG_HANDLE}</h2>
+    </div>
+    <a href={IG_PROFILE} target="_blank" rel="noopener" class="rounded-full border-2 border-soga-900 px-5 py-2 font-semibold text-soga-900 no-underline hover:bg-soga-900 hover:text-mori-50">
+      {t(lang, 'ig.follow')} ↗
+    </a>
+  </div>
+  {
+    posts.length > 0 && (
+      <ul class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {posts.map((p) => (
+          <li>
+            <a href={p.url} target="_blank" rel="noopener" class="group block overflow-hidden rounded-xl">
+              <Image
+                src={p.image}
+                alt={p.alt || t(lang, 'ig.post')}
+                width={360}
+                height={360}
+                densities={[1, 2]}
+                class="aspect-square w-full object-cover transition duration-300 group-hover:scale-105"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>

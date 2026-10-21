@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Body from '../components/Body.astro';
 import EventRow from '../components/EventRow.astro';
+import InstagramFeed from '../components/InstagramFeed.astro';
 import { splitEvents, formatEventDate } from '../lib/events.js';
 import { orgJsonLd } from '../lib/seo.js';
 import { t, localePath, localized, type Lang } from '../i18n';
@@ -147,6 +148,8 @@ const href = (id: string) => localePath(lang, `/events/${id}/`);
       </section>
     )
   }
+
+  <InstagramFeed lang={lang} />
 
   <section class="relative overflow-hidden bg-merah-700 text-white">
     <div class="bg-kawung absolute inset-0 opacity-25" aria-hidden="true"></div>
