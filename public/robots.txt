@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vereinindonesiaschweiz.ch/sitemap-index.xml

@@ -3,7 +3,7 @@ title: "Frühsommerbasar"
 eventDate: 2024-06-16
 time: "13:00 – 18:00"
 location: "Bahnhofsaal, Bahnhofstrasse 21, 4310 Rheinfelden"
-image: /images/events/2024/2024-fruehsommerbasar-flyer.jpeg
+image: "@images/events/2024/2024-fruehsommerbasar-flyer.jpeg"
 ---
 
 Entdecken Sie authentische kulinarische Spezialitäten und kreative Produkte aus verschiedenen Inseln Indonesiens.

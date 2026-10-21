@@ -3,7 +3,7 @@ title: "Winterbasar"
 eventDate: 2023-12-03
 time: "12:30 – 18:00"
 location: "Musiksaal Kurbrunnen, Habich-Dietschy-Strasse 14, 4310 Rheinfelden"
-image: /images/events/2023/2023-winterbasar-flyer.jpeg
+image: "@images/events/2023/2023-winterbasar-flyer.jpeg"
 ---
 
 ## Ort und Datum

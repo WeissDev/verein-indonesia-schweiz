@@ -24,7 +24,8 @@ npm test
 
 - Content: `src/content/events/**.md`, `src/content/pages/*.md`; schema in `src/content.config.ts`.
 - Editor forms: `.pages.yml` (field names must match the schema).
-- Images/PDFs: `public/`.
+- Images: `src/assets/images/`, referenced as `@images/...` (alias in `tsconfig.json`) so Astro resizes them to WebP. Logos and PDFs stay in `public/`.
+- SEO: canonical URLs, Open Graph tags, `Event`/organisation JSON-LD (`src/lib/seo.js`), `public/robots.txt`, sitemap.
 
 ## Hosting (one-time setup)
 

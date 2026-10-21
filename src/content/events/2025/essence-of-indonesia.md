@@ -3,7 +3,7 @@ title: "Essence of Indonesia"
 eventDate: 2025-05-11
 time: "11:30 – 17:00"
 location: "Bahnhofsaal, Bahnhofstrasse 21, 4310 Rheinfelden"
-image: /images/events/2025/essence-of-indonesia.jpeg
+image: "@images/events/2025/essence-of-indonesia.jpeg"
 ---
 
 **So, 11. Mai 2025, 11.30 – 17.00**\
@@ -30,5 +30,5 @@ Nicht Mitglied / Non Member CHF 39.-
 Jugendliche / Youth (10-17 Jahre/ years) CHF 25.-
 
 
-![Essence Of Indonesia Program](/images/events/2025/essence-of-indonesia-program.jpeg)
-![Rumah Indonesia](/images/events/2025/rumah-indonesia.jpeg)
+![Essence Of Indonesia Program](@images/events/2025/essence-of-indonesia-program.jpeg)
+![Rumah Indonesia](@images/events/2025/rumah-indonesia.jpeg)

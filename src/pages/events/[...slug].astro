@@ -1,7 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import { formatEventDate } from '../../lib/events.js';
+import { eventJsonLd } from '../../lib/seo.js';
+import { shareImageUrl } from '../../lib/shareImage';
 
 export async function getStaticPaths() {
   const events = await getCollection('events', (e) => !e.data.draft);
@@ -11,9 +14,17 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 const { title, time, location, image, summary } = event.data;
 const { Content } = await render(event);
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = eventJsonLd(event.data, { url, image: image && (await shareImageUrl(image, Astro.site!)) });
 ---
 
-<Base title={title} description={summary ?? `${formatEventDate(event.data)}${location ? `, ${location}` : ''}`} image={image}>
+<Base
+  title={title}
+  description={summary ?? `${formatEventDate(event.data)}${location ? `, ${location}` : ''}`}
+  image={image}
+  type="article"
+  jsonLd={jsonLd}
+>
   <article class="mx-auto max-w-3xl px-4 py-12">
     <p><a class="text-sm font-semibold text-merah-600" href="/events/">← Alle Events</a></p>
     <h1 class="mt-4 text-4xl font-bold">{title}</h1>
@@ -22,7 +33,18 @@ const { Content } = await render(event);
       {time && <><dt class="font-semibold">Zeit</dt><dd>{time}</dd></>}
       {location && <><dt class="font-semibold">Ort</dt><dd>{location}</dd></>}
     </dl>
-    {image && <img class="mx-auto my-8 max-h-[80vh] w-auto rounded-xl shadow-md" src={image} alt={`Flyer ${title}`} />}
+    {
+      image && (
+        <Image
+          class="mx-auto my-8 max-h-[80vh] w-auto rounded-xl shadow-md"
+          src={image}
+          alt={`Flyer ${title}`}
+          widths={[600, 1200]}
+          sizes="(min-width: 800px) 720px, 100vw"
+          loading="eager"
+        />
+      )
+    }
     <div class="prose prose-stone prose-headings:font-serif prose-a:text-merah-600 prose-img:rounded-xl">
       <Content />
     </div>

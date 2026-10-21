@@ -1,8 +1,9 @@
 # Editor config for https://app.pagescms.org
 # Field names must match the schema in src/content.config.ts.
+# Images live in src/assets so Astro can resize them; "@images" is the alias from tsconfig.json.
 media:
-  input: public/images
-  output: /images
+  input: src/assets/images
+  output: "@images"
   rename: safe
 
 content:
@@ -47,8 +48,6 @@ content:
       - name: image
         label: Flyer / Bild
         type: image
-        options:
-          path: public/images/events
       - name: summary
         label: Kurzbeschreibung
         description: "1–2 Sätze, erscheint auf der Startseite"
@@ -60,8 +59,6 @@ content:
       - name: body
         label: Text
         type: rich-text
-        options:
-          path: public/images/events
 
   - name: home
     label: Startseite
@@ -70,7 +67,7 @@ content:
     fields:
       - { name: title, label: Titel, type: string, required: true }
       - { name: summary, label: Untertitel, type: string }
-      - { name: image, label: Titelbild, type: image, options: { path: public/images/heroes } }
+      - { name: image, label: Titelbild, type: image }
       - { name: body, label: Text, type: rich-text }
 
   - name: pages

@@ -1,10 +1,14 @@
 ---
 import Email from '../components/Email.astro';
+import { shareImageUrl } from '../lib/shareImage';
 import '../styles/global.css';
 
-const { title, description = 'Die Austauschplattform für Indonesier, Schweizer und alle Interessierten', image } = Astro.props;
+const { title, description = 'Die Austauschplattform für Indonesier, Schweizer und alle Interessierten', image, type = 'website', jsonLd } = Astro.props;
 const siteName = 'Verein Indonesia Schweiz';
 const fullTitle = title && title !== siteName ? `${title} – ${siteName}` : siteName;
+// Always the real domain, so the *.pages.dev copy doesn't compete in search
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = await shareImageUrl(image, Astro.site!);
 const nav = [
   { href: '/events/', label: 'Events' },
   { href: '/ueber-uns/', label: 'Über uns' },
@@ -20,9 +24,16 @@ const path = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="de_CH" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replaceAll('<', '\\u003c')} />}
     <link rel="icon" href="/images/logos/cropped-Logo-Verein-Indonesia-Schweiz-32x32.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>

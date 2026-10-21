@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { formatEventDate } from '../lib/events.js';
 
 const { event } = Astro.props;
@@ -11,7 +12,13 @@ const { title, image, time, location, summary } = event.data;
 >
   {
     image ? (
-      <img class="aspect-4/3 w-full bg-mori-100 object-cover" src={image} alt="" loading="lazy" />
+      <Image
+        class="aspect-4/3 w-full bg-mori-100 object-cover"
+        src={image}
+        alt={`Flyer: ${title}`}
+        widths={[400, 800]}
+        sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+      />
     ) : (
       <div class="bg-kawung aspect-4/3 w-full bg-soga-700" aria-hidden="true" />
     )

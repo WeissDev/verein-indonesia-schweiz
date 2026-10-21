@@ -4,7 +4,7 @@ eventDate: 2024-08-29
 endDate: 2024-08-30
 time: "19:00 – 21:30"
 location: "Museum der Kulturen Basel, Münsterplatz 20, 4051 Basel"
-image: /images/events/2024/the-indonesian-dialogues.jpg
+image: "@images/events/2024/the-indonesian-dialogues.jpg"
 ---
 
 **Do, 29. August 2024, 19.00 – 21.30**\

@@ -1,7 +1,7 @@
 ---
 title: "Verein Indonesia Schweiz"
 summary: "Ein Kulturverein mit karitativem Engagement."
-image: /images/heroes/3256789010_48091259c3_b.jpg
+image: "@images/heroes/3256789010_48091259c3_b.jpg"
 ---
 
 ## Herzlich Willkommen beim Verein Indonesia-Schweiz!

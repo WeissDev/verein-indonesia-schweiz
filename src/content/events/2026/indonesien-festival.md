@@ -3,7 +3,7 @@ title: "Indonesien Festival @Rheinfelden"
 eventDate: 2026-08-22
 time: "12:30 – 22:00"
 location: "Kurbrunnenanlage, Habich-Dietschy-Strasse 14, 4310 Rheinfelden"
-image: /images/events/2026/indonesia-festival-flyer.jpeg
+image: "@images/events/2026/indonesia-festival-flyer.jpeg"
 summary: "75 Jahre Schweiz–Indonesien: Streetfood, Tanz, Musik, Workshops und Fashion Show. Freier Eintritt."
 ---
 
@@ -120,5 +120,5 @@ Wonderful Indonesia – Tourismus / Tourism
 **Supported by:** Rumah Indonesia, Coffeenatics, Indonesian Embassy, Trade Attaché & Feldschlösschen  
 **Sponsored by:** Stadt Rheinfelden
 
-![Programm Indonesien Festival 2026](/images/events/2026/indonesia-festival-flyer-back.jpeg)
-![Nilam Onasis - The Indonesian Cultural Ambassador](/images/events/2026/ambassador-flyer.jpeg)
+![Programm Indonesien Festival 2026](@images/events/2026/indonesia-festival-flyer-back.jpeg)
+![Nilam Onasis - The Indonesian Cultural Ambassador](@images/events/2026/ambassador-flyer.jpeg)

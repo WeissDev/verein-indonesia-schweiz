@@ -3,7 +3,7 @@ title: "Winterbasar"
 eventDate: 2025-11-23
 time: "12:00 – 17:00"
 location: "Bahnhofsaal, Bahnhofstrasse 21, 4310 Rheinfelden"
-image: /images/events/2025/winterbasar-2025.jpeg
+image: "@images/events/2025/winterbasar-2025.jpeg"
 summary: "Indonesische Spezialitäten, Handwerk und Live-Musik. Eintritt frei."
 ---
 
