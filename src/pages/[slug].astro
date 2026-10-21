@@ -13,7 +13,7 @@ const { Content } = await render(page);
 ---
 
 <Base title={page.data.title} description={page.data.summary} image={page.data.image}>
-  <article class="wrap section prose">
+  <article class="prose prose-stone prose-headings:font-serif prose-a:text-merah-600 prose-img:rounded-xl mx-auto max-w-3xl px-4 py-12">
     <h1>{page.data.title}</h1>
     <Content />
   </article>

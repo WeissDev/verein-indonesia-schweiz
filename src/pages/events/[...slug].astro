@@ -14,15 +14,17 @@ const { Content } = await render(event);
 ---
 
 <Base title={title} description={summary ?? `${formatEventDate(event.data)}${location ? `, ${location}` : ''}`} image={image}>
-  <article class="wrap section event">
-    <p><a href="/events/">← Alle Events</a></p>
-    <h1>{title}</h1>
-    <dl class="event-facts">
-      <dt>Datum</dt><dd>{formatEventDate(event.data)}</dd>
-      {time && <><dt>Zeit</dt><dd>{time}</dd></>}
-      {location && <><dt>Ort</dt><dd>{location}</dd></>}
+  <article class="mx-auto max-w-3xl px-4 py-12">
+    <p><a class="text-sm font-semibold text-merah-600" href="/events/">← Alle Events</a></p>
+    <h1 class="mt-4 text-4xl font-bold">{title}</h1>
+    <dl class="mt-6 grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 rounded-xl border-l-4 border-prada-400 bg-mori-100 px-5 py-4">
+      <dt class="font-semibold">Datum</dt><dd>{formatEventDate(event.data)}</dd>
+      {time && <><dt class="font-semibold">Zeit</dt><dd>{time}</dd></>}
+      {location && <><dt class="font-semibold">Ort</dt><dd>{location}</dd></>}
     </dl>
-    {image && <img class="event-image" src={image} alt={`Flyer ${title}`} />}
-    <div class="prose"><Content /></div>
+    {image && <img class="mx-auto my-8 max-h-[80vh] w-auto rounded-xl shadow-md" src={image} alt={`Flyer ${title}`} />}
+    <div class="prose prose-stone prose-headings:font-serif prose-a:text-merah-600 prose-img:rounded-xl">
+      <Content />
+    </div>
   </article>
 </Base>

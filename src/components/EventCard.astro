@@ -5,12 +5,21 @@ const { event } = Astro.props;
 const { title, image, time, location, summary } = event.data;
 ---
 
-<a class="card" href={`/events/${event.id}/`}>
-  {image ? <img src={image} alt="" loading="lazy" /> : <div class="card-placeholder" aria-hidden="true"></div>}
-  <div class="card-body">
-    <p class="card-date">{formatEventDate(event.data)}{time && ` · ${time}`}</p>
-    <h3>{title}</h3>
-    {location && <p class="card-meta">{location}</p>}
-    {summary && <p>{summary}</p>}
+<a
+  class="group flex flex-col overflow-hidden rounded-xl border border-mori-200 bg-white text-soga-900 no-underline shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+  href={`/events/${event.id}/`}
+>
+  {
+    image ? (
+      <img class="aspect-4/3 w-full bg-mori-100 object-cover" src={image} alt="" loading="lazy" />
+    ) : (
+      <div class="bg-kawung aspect-4/3 w-full bg-soga-700" aria-hidden="true" />
+    )
+  }
+  <div class="flex flex-1 flex-col gap-1 border-t-4 border-prada-400 p-4">
+    <p class="text-sm font-semibold tracking-wide text-prada-700 uppercase">{formatEventDate(event.data)}{time && ` · ${time}`}</p>
+    <h3 class="text-xl font-bold group-hover:text-merah-600">{title}</h3>
+    {location && <p class="text-sm text-soga-500">{location}</p>}
+    {summary && <p class="mt-1 text-sm">{summary}</p>}
   </div>
 </a>

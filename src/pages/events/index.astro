@@ -9,23 +9,23 @@ const pastByYear = Object.entries(Object.groupBy(past, (e) => String(e.data.even
 ---
 
 <Base title="Events">
-  <div class="wrap section">
-    <h1>Events</h1>
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <h1 class="mb-8 text-4xl font-bold">Events</h1>
 
-    <h2>Demnächst</h2>
+    <h2 class="mb-4 text-2xl font-bold">Demnächst</h2>
     {
       upcoming.length ? (
-        <div class="cards">{upcoming.map((e) => <EventCard event={e} />)}</div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{upcoming.map((e) => <EventCard event={e} />)}</div>
       ) : (
-        <p class="muted">Zurzeit sind keine Events geplant.</p>
+        <p class="text-soga-500">Zurzeit sind keine Events geplant.</p>
       )
     }
 
     {
       pastByYear.map(([year, events]) => (
         <>
-          <h2>{year}</h2>
-          <div class="cards">{events.map((e) => <EventCard event={e} />)}</div>
+          <h2 class="mt-12 mb-4 border-b border-mori-200 pb-2 text-2xl font-bold">{year}</h2>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{events.map((e) => <EventCard event={e} />)}</div>
         </>
       ))
     }

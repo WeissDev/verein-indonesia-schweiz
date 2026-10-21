@@ -10,34 +10,41 @@ const { upcoming, past } = splitEvents(await getCollection('events'));
 ---
 
 <Base title={home.data.title} description={home.data.summary} image={home.data.image}>
-  <section class="hero" style={home.data.image && `--hero: url('${home.data.image}')`}>
-    <div class="wrap">
-      <h1>{home.data.title}</h1>
-      {home.data.summary && <p>{home.data.summary}</p>}
+  <section class="relative isolate overflow-hidden bg-soga-900 text-center text-mori-50">
+    {home.data.image && <img src={home.data.image} alt="" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-45" />}
+    <div class="mx-auto max-w-6xl px-4 py-24 sm:py-36">
+      <h1 class="text-4xl font-bold text-mori-50 sm:text-6xl">{home.data.title}</h1>
+      {home.data.summary && <p class="mt-4 text-lg sm:text-xl">{home.data.summary}</p>}
+      <a href="/events/" class="mt-8 inline-block rounded-full bg-merah-600 px-6 py-3 font-semibold text-white no-underline hover:bg-merah-700">Zu den Events</a>
     </div>
   </section>
+  <div class="bg-kawung h-4 bg-soga-700" aria-hidden="true"></div>
 
-  <section class="wrap section">
-    <h2>Nächste Events</h2>
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="mb-6 text-3xl font-bold">Nächste Events</h2>
     {
       upcoming.length ? (
-        <div class="cards">{upcoming.map((e) => <EventCard event={e} />)}</div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{upcoming.map((e) => <EventCard event={e} />)}</div>
       ) : (
-        <p class="muted">Zurzeit sind keine Events geplant – schauen Sie bald wieder vorbei.</p>
+        <p class="rounded-xl border border-dashed border-soga-300 bg-mori-100 p-6 text-soga-700">
+          Zurzeit sind keine Events geplant – schauen Sie bald wieder vorbei.
+        </p>
       )
     }
   </section>
 
-  <section class="wrap section prose">
-    <Content />
+  <section class="bg-mori-100">
+    <div class="prose prose-stone prose-headings:font-serif prose-a:text-merah-600 mx-auto max-w-3xl px-4 py-12">
+      <Content />
+    </div>
   </section>
 
   {
     past.length > 0 && (
-      <section class="wrap section">
-        <h2>Vergangene Events</h2>
-        <div class="cards">{past.slice(0, 3).map((e) => <EventCard event={e} />)}</div>
-        <p><a href="/events/">Alle Events →</a></p>
+      <section class="mx-auto max-w-6xl px-4 py-12">
+        <h2 class="mb-6 text-3xl font-bold">Vergangene Events</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{past.slice(0, 3).map((e) => <EventCard event={e} />)}</div>
+        <p class="mt-6"><a class="font-semibold text-merah-600" href="/events/">Alle Events →</a></p>
       </section>
     )
   }
