@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import DateBlock from './DateBlock.astro';
+
+const { event } = Astro.props;
+const { title, eventDate, time, location, summary, image } = event.data;
+---
+
+<a
+  href={`/events/${event.id}/`}
+  class="group -mx-3 grid grid-cols-[auto_1fr] items-center gap-4 rounded-xl p-3 text-soga-900 no-underline transition hover:bg-mori-100 sm:grid-cols-[auto_1fr_auto] sm:gap-6"
+>
+  <DateBlock date={eventDate} />
+  <div class="min-w-0">
+    <h3 class="text-xl font-bold group-hover:text-merah-600">{title}</h3>
+    {(time || location) && <p class="text-sm text-soga-500">{[time, location].filter(Boolean).join(' · ')}</p>}
+    {summary && <p class="mt-1 line-clamp-2 text-sm">{summary}</p>}
+  </div>
+  {image && <Image src={image} alt={`Flyer: ${title}`} width={112} height={80} densities={[1, 2]} class="hidden h-20 w-28 rounded-lg object-cover sm:block" />}
+</a>

@@ -12,7 +12,6 @@ const ogImage = await shareImageUrl(image, Astro.site!);
 const nav = [
   { href: '/events/', label: 'Events' },
   { href: '/ueber-uns/', label: 'Über uns' },
-  { href: '/mitgliedschaft/', label: 'Mitgliedschaft' },
 ];
 const path = Astro.url.pathname;
 ---
@@ -44,7 +43,7 @@ const path = Astro.url.pathname;
           <img src="/images/logos/Logo-Verein-Indonesia-Schweiz.png" alt="" width="40" height="40" />
           Verein Indonesia Schweiz
         </a>
-        <nav aria-label="Hauptnavigation" class="flex flex-wrap gap-5">
+        <nav aria-label="Hauptnavigation" class="flex flex-wrap items-center gap-5">
           {
             nav.map((n) => (
               <a
@@ -56,6 +55,13 @@ const path = Astro.url.pathname;
               </a>
             ))
           }
+          <a
+            href="/mitgliedschaft/"
+            aria-current={path.startsWith('/mitgliedschaft/') ? 'page' : undefined}
+            class="rounded-full bg-merah-600 px-4 py-1.5 text-sm font-semibold text-white no-underline hover:bg-merah-700"
+          >
+            Mitglied werden
+          </a>
         </nav>
       </div>
     </header>

@@ -1,0 +1,16 @@
+---
+const { date, size = 'md' } = Astro.props;
+const month = new Intl.DateTimeFormat('de-CH', { month: 'short', timeZone: 'UTC' }).format(date);
+const lg = size === 'lg';
+---
+
+<div
+  class:list={[
+    'flex shrink-0 flex-col items-center justify-center rounded-lg bg-merah-600 text-center leading-none text-white shadow-sm',
+    lg ? 'h-28 w-24' : 'h-20 w-16',
+  ]}
+>
+  <span class="text-xs font-semibold tracking-widest uppercase">{month}</span>
+  <span class:list={['my-1 font-serif font-bold', lg ? 'text-5xl' : 'text-3xl']}>{date.getUTCDate()}</span>
+  <span class="text-xs opacity-80">{date.getUTCFullYear()}</span>
+</div>
